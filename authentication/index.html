@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>php</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container bg-primary text-center py-5 mt-2">
+      <h1 class="text-white">Resize Image Files Online</h1>
+
+      <p class="">Select an image</p>
+      <form action="handler.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="MAX_FILE_SIZE" value="15000000" /><br />
+        <input name="userfile[]" id="userfile" type="file" multiple/>
+        <input type="submit" value="Send File" />
+      </form>
+
+      <hr class="my-2 py-1" />
+    </div>
+
+   <div class="container card py-5 mt-2">
+   <form action="handler.php" method="POST">
+    <div class="container mt-5 d-flex">
+      <h4 class="mt-n1 mr-2">Select format:</h4>
+      <select data-options-type="base" class="w-25" id="inputTarget" name="target" multiple>
+        <option value="bmp"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BMP</font></font></option>
+        <option value="gif"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GIF</font></font></option>
+        <option value="exr"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">HDR / EXR</font></font></option>
+        <option value="ico"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ICO</font></font></option>
+        <option value="jpg"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">JPG</font></font></option>
+        <option selected="selected" value="png">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">PNG</font></font></option>
+        <option value="svg"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SVG</font></font></option>
+        <option value="tga"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TGA</font></font></option>
+        <option value="tiff"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TIFF</font></font></option>
+        <option value="wbmp"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">WBMP</font></font></option>
+        <option value="webp"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">WebP</font></font></option>
+    </select>
+    </div>
+    <div class="form-group form-separator mt-3 ml-3">
+      <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Изменить размер: </font></font><i class="fa fa-info-circle text-primary" data-toggle="tooltip" title="" data-original-title="Change the size of the image."></i></label>
+      <div class="row mx-0">
+          <div class="col-12 col-sm-3 col-md-4 pl-0 pr-0 input-settings-width">
+              <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ширина:</font></font></label>
+              <div class="input-group">
+                  <input placeholder="1 - 65000" class="form-control toggle-placeholder settings-input" id="inputWidth" data-value-type="integer" data-options-type="options" data-category="image" data-validation-method="number_range" name="width" type="number" min="1" max="65000">
+                  <span class="input-group-addon"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ПВ</font></font></span>
+                  <i class="fas fa-exclamation-circle input-warning hidden"></i>
+              </div>
+          </div>
+          <div class="col-12 col-sm-3 col-md-4 ml-5 pl-0 pr-0">
+              <label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Высота:</font></font></label>
+              <div class="input-group">
+                  <input placeholder="1 - 65000" class="form-control toggle-placeholder settings-input" id="inputHeight" data-value-type="integer" data-options-type="options" data-category="image" data-validation-method="number_range" name="height" type="number" min="1" max="65000">
+                  <span class="input-group-addon"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ПВ</font></font></span>
+                  <i class="fas fa-exclamation-circle input-warning hidden"></i>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="form-group form-separator mt-3 ml-3">
+    <div class="row mx-0">
+        <div class="col-12 col-md-5 pl-0">
+            <label class="control-label" for="inputDpi"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DPI: </font></font><i class="fa fa-info-circle text-primary" data-toggle="tooltip" title="" data-original-title="Change the DPI (dots per inch) value of your image."></i></label>
+            <div class="input-group">
+                <input class="toggle-placeholder form-control settings-input" id="inputDpi" data-category="image" placeholder="10 - 1200" data-value-type="integer" data-options-type="options" data-validation-method="number_range" name="dpi" type="number" min="10" max="1200">
+                <span class="input-group-addon"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">точек на дюйм</font></font></span>
+                <i class="fas fa-exclamation-circle input-warning hidden"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <button type="submit" class="btn btn-lg submit-btn bg-success ml-2" id="submitBtn">
+      <i class="fa fa-chevron-right"></i>
+      <strong class="text-uppercase convert_to"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Start</font></font></strong>
+  </button>
+
+  </form> 
+</div> 
+  </body>
+</html>
