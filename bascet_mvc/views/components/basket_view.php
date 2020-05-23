@@ -53,7 +53,8 @@
                                         <td>&nbsp;</td>
                                     </tr>
                             </tbody>
-                        </table>    
+                        </table> 
+                        <input type="hidden" name="total" value="<?= $subTotal ?>">   
                         <?php require_once 'buttons_view.php' ?>
                     </form>
                 <?php else: ?>

@@ -49,14 +49,6 @@ if (isset($_GET['action'])) {
         header("Location: {$_SERVER['PHP_SELF']}");
     }
 
-    if($_GET['action'] === 'check'){
-        $subTotal = (int)$_GET['sub_total'];
-        return_view('components/check', [
-            'prodCart' => prod_list($products),
-            'sub_total' => $subTotal
-        ]);
-    }
-
 }
 
 
@@ -68,8 +60,19 @@ if(isset($_POST['submit'])){
     }
 
     if($_POST['submit'] === 'check'){
+        return_view('components/check', [
+                    'prodCart' => prod_list($products),
+                    'sub_total' => $_POST['total'],
+                    'err' => $_SESSION['err'] = 'err'
+                ]);
+    } else {
         unset($_SESSION['err']);
+    }
+
+    if($_POST['submit'] === 'checkss'){
+        unset($_GET['err']);
         unset($_SESSION['success']);
+        
         if(valid([
             'card' => $_POST['user_card']
         ])){
@@ -92,7 +95,9 @@ if(isset($_POST['submit'])){
                 'success' => $_SESSION['success'] = 'success'
                     ]);    
         } else {
-            $_SESSION['err'] = 'err'; 
+            return_view('components/check',[
+                'err' => $_SESSION['err'] = 'err'
+                    ]);    
         }   
     }
 

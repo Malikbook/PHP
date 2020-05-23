@@ -30,7 +30,7 @@
 
                         <input type="hidden" name="total" value="<?= $data['sub_total'] ?>">
                         <a class="btn btn-danger mt-2 mb-n2" href="<?= $_SERVER['PHP_SELF'] ?>?action=go_to_bas">Go back</a>
-                        <button class="btn btn-success mt-2 mb-n2 float-right" type="submit" name="submit" value="check">To pay</button>
+                        <button class="btn btn-success mt-2 mb-n2 float-right" type="submit" name="submit" value="checkss">To pay</button>
                     </form>
                 </filedset>
             </div>

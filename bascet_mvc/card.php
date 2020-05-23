@@ -92,8 +92,6 @@ function valid(array $data = []){
 
 function check_data(array $data = []){
 
-    // var_dump($data['prodCart']);
-    // exit;
     $data1=[];
     $data2=[];
 
@@ -131,8 +129,6 @@ function records( $date, $total_check, $user_product, array $data =[] ){
     $inp = file_get_contents($filed);
     $tempArray = json_decode($inp);
 
-    // var_dump($tempArray);
-    // exit;
 
     if($tempArray == null){
         $arr = [];
