@@ -26,7 +26,6 @@ if (isset($_GET['action'])) {
             'prodShop' => $products,
             'go_to_shop' => $_SESSION['bas'] = 'bas'
         ]);
-        header("Location: {$_SERVER['PHP_SELF']}");
     } else {
         unset($_SESSION['bas']);
     }
