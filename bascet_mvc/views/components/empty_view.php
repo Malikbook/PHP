@@ -1,8 +1,8 @@
 <div class="alert alert-info mb-5" role="alert">
-    <?php if(isset($_SESSION['mass'])){
-            echo $_SESSION['mass'];
+    <?php if(isset($_SESSION['empty'])){
+            echo $_SESSION['empty'];
         } else {
-            unset($_SESSION['mass']);
+            unset($_SESSION['empty']);
             } 
     ?>
 </div>  

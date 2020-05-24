@@ -35,12 +35,10 @@ if (isset($_GET['action'])) {
         return_view('components/basket',[
             'prodCart' => prod_list($products),
             'prodShop' => $products,
-            'go_to_shop' => $_SESSION['empty'] = 'empty'
+            'go_to_shop' => $_SESSION['empty'] = '<span>Your shoping cart is empty...</span>',
         ]);
         header("Location: {$_SERVER['PHP_SELF']}");
-    } else {
-        unset($_SESSION['empty']);
-    }
+    } 
 
     if($_GET['action'] === 'remove'){
         $id = (int)$_GET['product_remove']; 
@@ -89,7 +87,9 @@ if(isset($_POST['submit'])){
                 'name' => $_POST['f_name'],
                 'lname' => $_POST['l_name'],
                     ]);
-
+            
+            clearCard();
+            
             return_view('components/success',[
                 'success' => $_SESSION['success'] = 'success'
                     ]);    
