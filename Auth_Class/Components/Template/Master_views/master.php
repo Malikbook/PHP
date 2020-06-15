@@ -15,7 +15,7 @@
   <body>
     <div class="container text-center py-5 mt-2 border" style="min-height: 600px; background-color: blanchedalmond;">
 
-    <?php require_once "./Components/Views/{$pat}.php" ?>
+    <?php require_once "./Components/Template/Views/{$pat}.php" ?>
      
     </div>
   </body>

@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__."/init.php";
-
 $view_form = new Form_Views;
 
 if(isset($_GET['action'])){

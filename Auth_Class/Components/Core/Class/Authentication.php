@@ -3,20 +3,21 @@
 class Authentication{
     private $email;
     private $pass;
+    private $patch_to_bd;
     use Valid;
 
-    public function __construct($email, $pass){
+    public function __construct($email, $pass, $patch_to_bd){
         $this->email = $email;
         $this->pass = $pass;
+        $this->patch = $patch_to_bd;
         $this->valid_email();
         $this->valid_pass();
         $this->userAuth();
     }
 
     private function userAuth(){
-        $filed = "bd.json";
-            
-        $inp = file_get_contents($filed);
+        
+        $inp = file_get_contents($this->patch);
         $tempArray = json_decode($inp, true);
 
             if(isset($_SESSION['err'])){
@@ -45,7 +46,7 @@ class Authentication{
                         $tempArray[$this->email][$this->email] = password_hash($this->pass, PASSWORD_DEFAULT, $options);
 
                         $jsonData = json_encode($tempArray);
-                        file_put_contents($filed, $jsonData, LOCK_EX);
+                        file_put_contents($this->patch, $jsonData, LOCK_EX);
 
                         unset($_SESSION['err'], $_SESSION['email'], $_SESSION['pass']);
 
