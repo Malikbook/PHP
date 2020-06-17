@@ -1,0 +1,37 @@
+<div class="container">
+        <h3 class="mb-3">
+            TOP-500 Most Popular Domains
+        </h3>
+        <?php $data['top'] = array_slice($data['top'], 0, 500) ?>
+        <?php if(count ($data['top']) > 0): ?>
+            <table class="table table-sm table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Domain</th>
+                        <th scope="col">IP-address</th>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Src.</th>
+                        <th scope="col">Last checked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $i = 1 ?>
+                    <?php foreach ($data['top'] as $domain => $rank): ?>
+                        <tr>
+                            <td><?= $i++ ?></td>
+                            <td><a href="//<?= $domain ?>" target="__blank"><?= $domain ?></a></td>
+                            <td class="text-success"><?= gethostbyname($domain) ?></td>
+                            <td class="text-danger"><?= $rank ?></td>
+                            <td class="text-muted">filename</td>
+                            <td class="text-muted">last update</td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table> 
+        <?php else: ?>
+            <div class="alert alert-dark" role="alert">
+                Sorry, no records found...
+            </div>
+        <?php endif ?>
+    </div>
