@@ -9,7 +9,7 @@ class Raiting_txt extends File_rider{
         $this->patch = $patch;
     }
 
-    public function reading_txt(){
+    public function reading(){
 
         if($this->extension_check() == 'txt'){
             $riader = file($this->patch);

@@ -9,7 +9,7 @@
         $this->patch = $patch;
     }
 
-    public function reading_csv(){
+    public function reading(){
 
         if($this->extension_check() == 'csv'){
             $riader = file($this->patch);

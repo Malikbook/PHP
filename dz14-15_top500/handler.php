@@ -6,4 +6,4 @@ $txt = new Raiting_txt($patch1);
 
 $csv = new Raiting_csv($patch2);
 
-$top = new File_rider($txt->reading_txt(), $csv->reading_csv());
+$top = new File_rider($txt->reading(), $csv->reading());
