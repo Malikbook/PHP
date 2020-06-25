@@ -11,21 +11,21 @@ spl_autoload_register(function ($name){
     if(file_exists($files) == true){
         include_once($files);
     } 
-}, true);
+});
 
 spl_autoload_register(function ($name){
     $files = __DIR__."/Components/Core/Interfaces/".$name.".php";
     if(file_exists($files) == true){
         include_once($files);
     }
-}, true);
+});
 
 spl_autoload_register(function ($name){
     $files = __DIR__."/Components/Core/Traits/".$name.".php";
     if(file_exists($files) == true){
         include_once($files);
     }
- }, true);
+ });
 
 require_once __DIR__."/handler.php";
 
